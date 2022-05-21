@@ -401,13 +401,15 @@ To turn our compiled kernel into a bootable disk image, we need to link it with 
 
 Instead of writing our own bootloader, which is a project on its own, we use the [`bootloader`] crate. This crate implements a basic BIOS bootloader without any C dependencies, just Rust and inline assembly. To use it for booting our kernel, we need to add a dependency on it:
 
-[`bootloader`]: https://crates.io/crates/bootloader
+[`bootloader`]: ../bootloader
 
 ```toml
 # in Cargo.toml
 
 [dependencies]
-bootloader = "0.9.8"
+bootloader = { path = "bootloader", version = "0.9", features = [
+    "map_physical_memory",
+] }
 ```
 
 Adding the bootloader as dependency is not enough to actually create a bootable disk image. The problem is that we need to link our kernel with the bootloader after compilation, but cargo has no support for [post-build scripts].

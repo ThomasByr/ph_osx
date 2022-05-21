@@ -7,7 +7,7 @@
    3. [Map the Complete Physical Memory](#map-the-complete-physical-memory)
    4. [Temporary Mapping](#temporary-mapping)
    5. [Recursive Page Tables](#recursive-page-tables)
-      1. [In Rust Code](#in-rust-code)
+         1. [In Rust Code](#in-rust-code)
 3. [Bootloader Support](#bootloader-support)
    1. [Boot Information](#boot-information)
    2. [The `entry_point` Macro](#the-entry_point-macro)
@@ -291,9 +291,8 @@ With this feature enabled, the bootloader maps the complete physical memory to s
 
 ### Boot Information
 
-The `bootloader` crate defines a [`BootInfo`] struct that contains all the information it passes to our kernel. The struct is still in an early stage, so expect some breakage when updating to future [semver-incompatible] bootloader versions. With the `map_physical_memory` feature enabled, it currently has the two fields `memory_map` and `physical_memory_offset`:
+The `bootloader` crate defines a `BootInfo` struct that contains all the information it passes to our kernel. The struct is still in an early stage, so expect some breakage when updating to future [semver-incompatible] bootloader versions. With the `map_physical_memory` feature enabled, it currently has the two fields `memory_map` and `physical_memory_offset`:
 
-[`bootinfo`]: https://docs.rs/bootloader/0.9.3/bootloader/bootinfo/struct.BootInfo.html
 [semver-incompatible]: https://doc.rust-lang.org/stable/cargo/reference/specifying-dependencies.html#caret-requirements
 
 - The `memory_map` field contains an overview of the available physical memory. This tells our kernel how much physical memory is available in the system and which memory regions are reserved for devices such as the VGA hardware. The memory map can be queried from the BIOS or UEFI firmware, but only very early in the boot process. For this reason, it must be provided by the bootloader because there is no way for the kernel to retrieve it later. We will need the memory map later in this post.
@@ -318,9 +317,7 @@ It wasn't a problem to leave off this argument before because the x86_64 calling
 
 Since our `_start` function is called externally from the bootloader, no checking of our function signature occurs. This means that we could let it take arbitrary arguments without any compilation errors, but it would fail or cause undefined behavior at runtime.
 
-To make sure that the entry point function has always the correct signature that the bootloader expects, the `bootloader` crate provides an [`entry_point`] macro that provides a type-checked way to define a Rust function as the entry point. Let's rewrite our entry point function to use this macro:
-
-[`entry_point`]: https://docs.rs/bootloader/0.6.4/bootloader/macro.entry_point.html
+To make sure that the entry point function has always the correct signature that the bootloader expects, the `bootloader` crate provides an `entry_point` macro that provides a type-checked way to define a Rust function as the entry point. Let's rewrite our entry point function to use this macro:
 
 ```rust
 // in src/main.rs
@@ -923,13 +920,12 @@ impl BootInfoFrameAllocator {
 
 This function uses iterator combinator methods to transform the initial `MemoryMap` into an iterator of usable physical frames:
 
-- First, we call the `iter` method to convert the memory map to an iterator of [`MemoryRegion`]s.
+- First, we call the `iter` method to convert the memory map to an iterator of `MemoryRegion`s.
 - Then we use the [`filter`] method to skip any reserved or otherwise unavailable regions. The bootloader updates the memory map for all the mappings it creates, so frames that are used by our kernel (code, data or stack) or to store the boot information are already marked as `InUse` or similar. Thus we can be sure that `Usable` frames are not used somewhere else.
 - Afterwards, we use the [`map`] combinator and Rust's [range syntax] to transform our iterator of memory regions to an iterator of address ranges.
 - Next, we use [`flat_map`] to transform the address ranges into an iterator of frame start addresses, choosing every 4096th address using [`step_by`]. Since 4096 bytes (= 4 KiB) is the page size, we get the start address of each frame. The bootloader page aligns all usable memory areas so that we don't need any alignment or rounding code here. By using [`flat_map`] instead of `map`, we get an `Iterator<Item = u64>` instead of an `Iterator<Item = Iterator<Item = u64>>`.
 - Finally, we convert the start addresses to `PhysFrame` types to construct the an `Iterator<Item = PhysFrame>`.
 
-[`memoryregion`]: https://docs.rs/bootloader/0.6.4/bootloader/bootinfo/struct.MemoryRegion.html
 [`filter`]: https://doc.rust-lang.org/core/iter/trait.Iterator.html#method.filter
 [`map`]: https://doc.rust-lang.org/core/iter/trait.Iterator.html#method.map
 [range syntax]: https://doc.rust-lang.org/core/ops/struct.Range.html
