@@ -3,7 +3,7 @@ authors = ["ThomasByr"]
 description = "Tool to create a bootable OS image from a kernel binary."
 name = "bootimage"
 version = "0.10.3"
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 toml = "0.5.6"
