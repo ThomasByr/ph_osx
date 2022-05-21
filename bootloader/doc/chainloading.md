@@ -13,11 +13,13 @@ menuentry "myOS" {
 This tells grub that our binary is installed on the first partition of the `hd1` disk. If you're trying to boot on real hardware you may need to edit this value as appropriate. Alternatively, you should be able to create a partition on the same ISO file that grub creates and copy the binary there.
 
 Next, create the ISO with:
+
 ```
 grub-mkrescue -o grub.iso iso
 ```
 
 Testing with QEMU (replacing `my_os` with the name of your OS's target):
+
 ```
 qemu-system-x86_64 -hda grub.iso -hdb target/x86_64-my_os/debug/bootimage-my_os.bin
 ```
