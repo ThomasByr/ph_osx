@@ -1,9 +1,4 @@
 //! This library part of the bootloader allows kernels to retrieve information from the bootloader.
-//!
-//! To combine your kernel with the bootloader crate you need a tool such
-//! as [`bootimage`](https://github.com/rust-osdev/bootimage). See the
-//! [_Writing an OS in Rust_](https://os.phil-opp.com/minimal-rust-kernel/#creating-a-bootimage)
-//! blog for an explanation.
 
 #![no_std]
 #![warn(missing_docs)]
@@ -13,10 +8,7 @@ pub use crate::bootinfo::BootInfo;
 pub mod bootinfo;
 
 #[cfg(target_arch = "x86")]
-compile_error!(
-    "This crate currently does not support 32-bit protected mode. \
-         See https://github.com/rust-osdev/bootloader/issues/70 for more information."
-);
+compile_error!("This crate currently does not support 32-bit protected mode.");
 
 #[cfg(not(any(target_arch = "x86_64", target_arch = "x86")))]
 compile_error!("This crate only supports the x86_64 architecture.");
