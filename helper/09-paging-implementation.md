@@ -7,7 +7,7 @@
    3. [Map the Complete Physical Memory](#map-the-complete-physical-memory)
    4. [Temporary Mapping](#temporary-mapping)
    5. [Recursive Page Tables](#recursive-page-tables)
-         1. [In Rust Code](#in-rust-code)
+      1. [In Rust Code](#in-rust-code)
 3. [Bootloader Support](#bootloader-support)
    1. [Boot Information](#boot-information)
    2. [The `entry_point` Macro](#the-entry_point-macro)
