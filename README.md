@@ -77,7 +77,7 @@ Where `sdX` is the device name of your USB stick. **Be careful** to choose the c
 
 ## 💁 Testing
 
-To run the unit and integration tests, execute `cargo test`.
+To run the unit and integration tests, execute `cargo xtest`.
 
 ## ⚖️ License
 
