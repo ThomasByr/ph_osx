@@ -14,7 +14,7 @@
 
 Let me tell you a story. This is the story of the [Zorglub-33](https://github.com/sandhose/z33-emulator) micro-controller. Well, this is no great story: like all things on Earth, z33 is temporary. Few can say they ended up writting z33 assembly. In fact, at least two newer versions of the z33 came up. But when z34 was announced in a subject paper, it was all over. So let me introduce to you : PH osX! The new and improved architecture design (well, it is based on x86), kernel and (very) basic OS for academic purposes. From basic kernel implementation through vga text buffers, all the way up to paging and multitasking, PH osX has it all.
 
-> Of course this is no ordinary code. And this is not just buggy code. You can find and learn more about building an os from scratch is the [helper](helper/) directory.
+> Of course this is no ordinary code. And this is not just buggy code. You can find and learn more about building an os from scratch is the [helper](helper/) directory or read the [Wiki](https://github.com/ThomasByr/ph_osx/wiki).
 
 ## 🔰 Building
 
