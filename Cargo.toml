@@ -16,13 +16,15 @@ harness = false
 bootloader = { path = "bootloader", version = "0.9", features = [
     "map_physical_memory",
 ] }
-volatile = "0.2.6"
-spin = "0.5.2"
-x86_64 = "0.14.2"
+linked_list_allocator = { path = "linked-list-allocator" }
+spin = { path = "spin", version = "0.9" }
+x86_64 = { path = "x86_64", version = "0.14" }
+
+volatile = "0.3"
 uart_16550 = "0.2.0"
 pic8259 = "0.10.1"
 pc-keyboard = "0.5.0"
-linked_list_allocator = { path = "linked-list-allocator" }
+
 
 [dependencies.lazy_static]
 version = "1.0"
