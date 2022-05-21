@@ -1,5 +1,16 @@
 # PH osX
 
+[![Linux](https://svgshare.com/i/Zhy.svg)](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
+[![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg)
+[![GitHub license](https://img.shields.io/github/license/ThomasByr/ph_osx)](https://github.com/ThomasByr/ph_osx/blob/master/LICENSE)
+[![GitHub commits](https://badgen.net/github/commits/ThomasByr/ph_osx)](https://GitHub.com/ThomasByr/ph_osx/commit/)
+[![GitHub latest commit](https://badgen.net/github/last-commit/ThomasByr/ph_osx)](https://gitHub.com/ThomasByr/ph_osx/commit/)
+[![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green.svg)](https://GitHub.com/ThomasByr/ph_osx/graphs/commit-activity)
+
+[![Code](https://github.com/ThomasByr/ph_osx/actions/workflows/code.yml/badge.svg)](https://github.com/ThomasByr/ph_osx/actions/workflows/code.yml)
+[![GitHub version](https://badge.fury.io/gh/ThomasByr%2Fph_osx.svg)](https://github.com/ThomasByr/ph_osx)
+[![Author](https://img.shields.io/badge/author-@ThomasByr-blue)](https://github.com/ThomasByr)
+
 1. [✏️ In short](#️-in-short)
 2. [🔰 Building](#-building)
 3. [👩‍🏫 Running](#-running)
