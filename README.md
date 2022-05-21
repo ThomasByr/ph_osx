@@ -1,4 +1,4 @@
-# PH osX
+# <img src="assets/icon.png" alt="icon" width="3%"/> PH osX
 
 [![Linux](https://svgshare.com/i/Zhy.svg)](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
 [![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg)
