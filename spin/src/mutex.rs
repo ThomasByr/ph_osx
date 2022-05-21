@@ -27,11 +27,11 @@ pub mod ticket;
 #[cfg_attr(docsrs, doc(cfg(feature = "ticket_mutex")))]
 pub use self::ticket::{TicketMutex, TicketMutexGuard};
 
+use crate::{RelaxStrategy, Spin};
 use core::{
     fmt,
     ops::{Deref, DerefMut},
 };
-use crate::{RelaxStrategy, Spin};
 
 #[cfg(all(not(feature = "spin_mutex"), not(feature = "use_ticket_mutex")))]
 compile_error!("The `mutex` feature flag was used (perhaps through another feature?) without either `spin_mutex` or `use_ticket_mutex`. One of these is required.");
@@ -132,7 +132,9 @@ impl<T, R> Mutex<T, R> {
     /// ```
     #[inline(always)]
     pub const fn new(value: T) -> Self {
-        Self { inner: InnerMutex::new(value) }
+        Self {
+            inner: InnerMutex::new(value),
+        }
     }
 
     /// Consumes this [`Mutex`] and unwraps the underlying data.

@@ -1,17 +1,16 @@
 //! A lock that provides data access to either one writer or many readers.
 
-use core::{
-    cell::UnsafeCell,
-    ops::{Deref, DerefMut},
-    marker::PhantomData,
-    fmt,
-    mem,
-};
 use crate::{
     atomic::{AtomicUsize, Ordering},
-    RelaxStrategy, Spin
+    RelaxStrategy, Spin,
 };
-
+use core::{
+    cell::UnsafeCell,
+    fmt,
+    marker::PhantomData,
+    mem,
+    ops::{Deref, DerefMut},
+};
 
 /// A lock that provides data access to either one writer or many readers.
 ///
@@ -401,18 +400,18 @@ impl<T: ?Sized, R> RwLock<T, R> {
         }
     }
 
-   /// Returns a mutable reference to the underlying data.
-   ///
-   /// Since this call borrows the `RwLock` mutably, no actual locking needs to
-   /// take place -- the mutable borrow statically guarantees no locks exist.
-   ///
-   /// # Examples
-   ///
-   /// ```
-   /// let mut lock = spin::RwLock::new(0);
-   /// *lock.get_mut() = 10;
-   /// assert_eq!(*lock.read(), 10);
-   /// ```
+    /// Returns a mutable reference to the underlying data.
+    ///
+    /// Since this call borrows the `RwLock` mutably, no actual locking needs to
+    /// take place -- the mutable borrow statically guarantees no locks exist.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// let mut lock = spin::RwLock::new(0);
+    /// *lock.get_mut() = 10;
+    /// assert_eq!(*lock.read(), 10);
+    /// ```
     pub fn get_mut(&mut self) -> &mut T {
         // We know statically that there are no other references to `self`, so
         // there's no need to lock the inner lock.
@@ -642,7 +641,10 @@ impl<'rwlock, T: ?Sized, R> RwLockWriteGuard<'rwlock, T, R> {
     /// ```
     #[inline]
     pub fn downgrade_to_upgradeable(self) -> RwLockUpgradableGuard<'rwlock, T, R> {
-        debug_assert_eq!(self.inner.lock.load(Ordering::Acquire) & (WRITER | UPGRADED), WRITER);
+        debug_assert_eq!(
+            self.inner.lock.load(Ordering::Acquire) & (WRITER | UPGRADED),
+            WRITER
+        );
 
         // Reserve the read guard for ourselves
         self.inner.lock.store(UPGRADED, Ordering::Release);
@@ -744,7 +746,9 @@ impl<'rwlock, T: ?Sized, R> Drop for RwLockWriteGuard<'rwlock, T, R> {
 
         // Writer is responsible for clearing both WRITER and UPGRADED bits.
         // The UPGRADED bit may be set if an upgradeable lock attempts an upgrade while this lock is held.
-        self.inner.lock.fetch_and(!(WRITER | UPGRADED), Ordering::Release);
+        self.inner
+            .lock
+            .fetch_and(!(WRITER | UPGRADED), Ordering::Release);
     }
 }
 
@@ -828,7 +832,9 @@ unsafe impl<R: RelaxStrategy> lock_api_crate::RawRwLockUpgrade for RwLock<(), R>
     #[inline(always)]
     fn try_lock_upgradable(&self) -> bool {
         // Prevent guard destructor running
-        self.try_upgradeable_read().map(|g| core::mem::forget(g)).is_some()
+        self.try_upgradeable_read()
+            .map(|g| core::mem::forget(g))
+            .is_some()
     }
 
     #[inline(always)]
@@ -857,7 +863,10 @@ unsafe impl<R: RelaxStrategy> lock_api_crate::RawRwLockUpgrade for RwLock<(), R>
             data: &(),
             phantom: PhantomData,
         };
-        tmp_guard.try_upgrade().map(|g| core::mem::forget(g)).is_ok()
+        tmp_guard
+            .try_upgrade()
+            .map(|g| core::mem::forget(g))
+            .is_ok()
     }
 }
 
