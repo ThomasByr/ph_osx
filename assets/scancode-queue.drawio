@@ -1,0 +1,73 @@
+<mxfile host="65bd71144e">
+    <diagram id="2gJaQso8FLKLDDzqgf_f" name="Page-1">
+        <mxGraphModel dx="434" dy="469" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-7" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="60" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-9" value="Scancode Queue" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="40" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-10" value="Keyboard Interrupt Handler" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="120" width="70" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-11" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Szl4guSaWl9oX6xhH7R2-10" target="Szl4guSaWl9oX6xhH7R2-1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="20" y="250" as="sourcePoint"/>
+                        <mxPoint x="70" y="200" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="50" y="150"/>
+                            <mxPoint x="50" y="70"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-12" value="push scancode" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;labelPosition=right;verticalLabelPosition=middle;spacingLeft=3;fontColor=#4D4D4D;" parent="Szl4guSaWl9oX6xhH7R2-11" vertex="1" connectable="0">
+                    <mxGeometry x="-0.3667" y="1" relative="1" as="geometry">
+                        <mxPoint x="1" y="-28.839999999999996" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-13" value="Keyboard Task" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="120" width="70" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-14" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Szl4guSaWl9oX6xhH7R2-8" target="Szl4guSaWl9oX6xhH7R2-13" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="20" y="250" as="sourcePoint"/>
+                        <mxPoint x="70" y="200" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="270" y="70"/>
+                            <mxPoint x="270" y="150"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Szl4guSaWl9oX6xhH7R2-15" value="pop scancode" style="text;html=1;align=right;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;labelPosition=left;verticalLabelPosition=middle;spacingRight=3;fontColor=#4D4D4D;" parent="Szl4guSaWl9oX6xhH7R2-14" vertex="1" connectable="0">
+                    <mxGeometry x="-0.25" y="-14" relative="1" as="geometry">
+                        <mxPoint x="14" y="11.29" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
