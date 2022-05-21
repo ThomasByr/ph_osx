@@ -19,7 +19,7 @@
 6. [🔄 Changelog](#-changelog)
 7. [🐛 Bugs & TODO](#-bugs--todo)
 
-![welcome, stranger!](assets/qemu.png)
+![welcome, stranger!](assets/qemu-typing.gif)
 
 ## ✏️ In short
 
