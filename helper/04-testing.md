@@ -180,7 +180,7 @@ Instead of manually invoking the `in` and `out` assembly instructions, we use th
 # in Cargo.toml
 
 [dependencies]
-x86_64 = "0.14.2"
+x86_64 = { path = "x86_64", version = "0.14" }
 ```
 
 Now we can use the [`Port`] type provided by the crate to create an `exit_qemu` function:
