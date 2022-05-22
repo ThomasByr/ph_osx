@@ -76,7 +76,7 @@ pub struct SpinMutexGuard<'a, T: ?Sized + 'a> {
 }
 
 // Same unsafe impls as `std::sync::Mutex`
-unsafe impl<T: ?Sized + Send> Sync for SpinMutex<T> {}
+unsafe impl<T: ?Sized + Send, R> Sync for SpinMutex<T, R> {}
 unsafe impl<T: ?Sized + Send, R> Send for SpinMutex<T, R> {}
 
 impl<T, R> SpinMutex<T, R> {
