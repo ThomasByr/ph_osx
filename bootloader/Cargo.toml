@@ -12,7 +12,7 @@ required-features = ["binary"]
 
 [dependencies]
 xmas-elf = { version = "0.6.2", optional = true }
-x86_64 = { version = "0.14.7", optional = true, default-features = false, features = [
+x86_64 = { path = "../x86_64", version = "0.14", optional = true, default-features = false, features = [
     "instructions",
     "inline_asm",
 ] }
