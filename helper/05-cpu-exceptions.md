@@ -179,7 +179,7 @@ Note that this does not mean that all registers are saved to the stack at functi
 
 On a normal function call (using the `call` instruction), the CPU pushes the return address before jumping to the target function. On function return (using the `ret` instruction), the CPU pops this return address and jumps to it. So the stack frame of a normal function call looks like this:
 
-![function stack frame](function-stack-frame.svg)
+![function stack frame](../assets/function-stack-frame.svg)
 
 For exception and interrupt handlers, however, pushing a return address would not suffice, since interrupt handlers often run in a different context (stack pointer, CPU flags, etc.). Instead, the CPU performs the following steps when an interrupt occurs:
 
@@ -195,7 +195,7 @@ For exception and interrupt handlers, however, pushing a return address would no
 
 So the _interrupt stack frame_ looks like this:
 
-![interrupt stack frame](exception-stack-frame.svg)
+![interrupt stack frame](../assets/exception-stack-frame.svg)
 
 In the `x86_64` crate, the interrupt stack frame is represented by the [`InterruptStackFrame`] struct. It is passed to interrupt handlers as `&mut` and can be used to retrieve additional information about the exception's cause. The struct contains no error code field, since only some few exceptions push an error code. These exceptions use the separate [`HandlerFuncWithErrCode`] function type, which has an additional `error_code` argument.
 
