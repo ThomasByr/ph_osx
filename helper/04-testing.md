@@ -28,7 +28,7 @@ This post explores unit and integration testing in `no_std` executables. We will
 
 ## Requirements
 
-This post replaces the (now deprecated) _Unit Testing_ and _Integration Tests_ posts. It assumes that you have followed the _A Minimal Rust Kernel_ post after 2019-04-27. Mainly, it requires that you have a `.cargo/config.toml` file that sets a default target and defines a runner executable.
+This post replaces the (now deprecated/removed) _Unit Testing_ and _Integration Tests_ posts. Mainly, it requires that you have a `.cargo/config.toml` file that sets a default target and defines a runner executable.
 
 ## Testing in Rust
 
