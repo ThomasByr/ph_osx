@@ -316,11 +316,11 @@ We can add a dependency on the `volatile` crate by adding it to the `dependencie
 # in Cargo.toml
 
 [dependencies]
-volatile = "0.2.6"
+volatile = "0.3"
 ```
 
-Make sure to specify `volatile` version `0.2.6`. Newer versions of the crate are not compatible with this post.
-The `0.2.6` is the [semantic] version number. For more information, see the [Specifying Dependencies] guide of the cargo documentation.
+Make sure to specify `volatile` version `0.3`. Newer versions of the crate are not compatible with this post.
+The `0.3` is the [semantic] version number. For more information, see the [Specifying Dependencies] guide of the cargo documentation.
 
 [semantic]: https://semver.org/
 [specifying dependencies]: https://doc.crates.io/specifying-dependencies.html
