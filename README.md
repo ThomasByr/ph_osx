@@ -81,7 +81,7 @@ To run the unit and integration tests, execute `cargo xtest`.
 
 ## ⚖️ License
 
-This project is licensed under the GPL-3.0 new or revised license. Please read the LICENSE file.
+This project is licensed under the GPL-3.0 new or revised license. Please read the [LICENSE](LICENSE) file.
 
 - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
