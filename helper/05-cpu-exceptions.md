@@ -13,7 +13,8 @@
       1. [Lazy Statics to the Rescue](#lazy-statics-to-the-rescue)
    2. [Running it](#running-it)
    3. [Adding a Test](#adding-a-test)
-5. [What's next?](#whats-next)
+5. [Too much Magic?](#too-much-magic)
+6. [What's next?](#whats-next)
 
 CPU exceptions occur in various erroneous situations, for example when accessing an invalid memory address or when dividing by zero. To react to them we have to set up an _interrupt descriptor table_ that provides handler functions. At the end of this post, our kernel will be able to catch [breakpoint exceptions] and to resume normal execution afterwards.
 
@@ -459,6 +460,13 @@ You can try this new test by running `cargo test` (all tests) or `cargo test --l
 ```
 ph_osx::interrupts::test_breakpoint_exception...	[ok]
 ```
+
+## Too much Magic?
+
+The `x86-interrupt` calling convention and the [`InterruptDescriptorTable`] type made the exception handling process relatively straightforward and painless. It shows how to handle exceptions without the `x86-interrupt` calling convention and also creates its own IDT type. Historically, these posts were the main exception handling posts before the `x86-interrupt` calling convention and the `x86_64` crate existed.
+
+[“handling exceptions with naked functions”]: @/edition-1/extra/naked-exceptions/_index.md
+[`interruptdescriptortable`]: https://docs.rs/x86_64/0.14.2/x86_64/structures/idt/struct.InterruptDescriptorTable.html
 
 ## What's next?
 
