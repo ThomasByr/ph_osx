@@ -138,5 +138,5 @@ gantt
 
 ## 🐛 Bugs & TODO
 
-- [ ] `cargo clippy --all-targets --all-features -- -D clippy::all`
+- [x] `cargo clippy --all-targets --all-features -- -D clippy::all` (**does not apply on `no_std` targets**)
 - [ ] threads
